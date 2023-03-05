@@ -65,6 +65,7 @@ dependencies {
 
     //paging
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
+    implementation "androidx.room:room-paging:$roomVersion"
 
     //room
     implementation "androidx.room:room-runtime:$roomVersion"

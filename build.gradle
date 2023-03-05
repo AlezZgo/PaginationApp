@@ -2,7 +2,7 @@
 plugins {
     id 'com.android.application' version '7.1.0' apply false
     id 'com.android.library' version '7.1.0' apply false
-    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
     id 'androidx.navigation.safeargs' version '2.5.2'apply false
 }
 task clean(type: Delete) {
@@ -19,7 +19,7 @@ ext {
     constraintLayoutVersion = '2.1.2'
     materialVersion = '1.4.0'
     lifecycleVersion = '2.4.0'
-    roomVersion = '2.3.0'
+    roomVersion = '2.4.3'
     pagingVersion = '3.1.0'
     retrofitVersion = '2.9.0'
     okhttpLoggingInterceptorVersion = '4.9.0'
