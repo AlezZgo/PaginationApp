@@ -12,6 +12,7 @@ import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.alezzgo.paginationapp.Injection
 import com.alezzgo.paginationapp.databinding.ActivitySearchRepositoriesBinding
 import kotlinx.coroutines.flow.*
@@ -31,12 +32,12 @@ class SearchRepositoriesActivity : AppCompatActivity() {
                 context = this,
                 owner = this
             )
-        )
-            .get(SearchRepositoriesViewModel::class.java)
+        ).get(SearchRepositoriesViewModel::class.java)
 
         // add dividers between RecyclerView's row items
         val decoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         binding.list.addItemDecoration(decoration)
+        (binding.list.itemAnimator as SimpleItemAnimator).supportsChangeAnimations =false
 
         // bind the state
         binding.bindState(
@@ -57,6 +58,7 @@ class SearchRepositoriesActivity : AppCompatActivity() {
     ) {
         val repoAdapter = ReposAdapter()
         val header = ReposLoadStateAdapter { repoAdapter.retry() }
+
         list.adapter = repoAdapter.withLoadStateHeaderAndFooter(
             header = header,
             footer = ReposLoadStateAdapter { repoAdapter.retry() }
